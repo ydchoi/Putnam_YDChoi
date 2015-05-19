@@ -1,0 +1,210 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips14submit_e,times}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+%\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\def\eQb#1\eQe{\begin{eqnarray*}#1\end{eqnarray*}}
+\def\eQnb#1\eQne{\begin{eqnarray}#1\end{eqnarray}}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\providecommand{\pb}[0]{\pagebreak}
+
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{Claim:}\space#1}{}
+\newtheoremstyle{quest}{\topsep}{\topsep}{}{}{\bfseries}{}{ }{\thmname{#1}\thmnote{ #3}.}
+\theoremstyle{quest}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{question}{Question}
+\newtheorem*{exercise}{Exercise}
+\newtheorem*{challengeproblem}{Challenge Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{remark}{Remark}
+\usepackage{verbatimbox}
+\usepackage{listings}
+\title{Putnam Compendium}
+
+
+\author{
+Youngduck Choi \\
+CILVR Lab \\
+CIMS, New York University \\
+\texttt{yc1104@nyu.edu} \\
+}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+The work contains the solutions to Putnam problems. 
+\end{abstract}
+
+\section{Solutions}
+
+\begin{question}[2012 A-1]
+\end{question}
+\begin{solution} 
+Assume without loss of generality that $d_1 \leq d_2 \leq ... \leq d_n$.
+Suppose for sake of contradiction that there does not exist distinct 
+indices $i, j, k$ such that $d_i, d_j, d_k$ are the side lengths of an acute
+triangle. By the property of an acute traingle we have (PATCH)
+\eQnb
+d_{i+2}^2 \geq d_{i+1}^2 + d_{i}^2 
+\eQne
+for all $i$ such that $1 \leq i \leq 10$.
+We first claim that
+\[
+d_i^2 \geq F_i d_1^2 \\
+\]
+holds for all $1 \leq i \leq 12$ where $F_i$ is a $i$th Fibonacci number with $F_1 = 1$ and $F_2 = 1$. We proceed
+to prove the claim by strong induction. Base case of the induction trivially holds as $F_1 = 1$ yielding
+\[
+d_1^2 \geq d_1^2. 
+\]
+Now assume that the statement holds true from $1$ to $i$. From $(1)$ we obtain
+\[
+d_{i+1}^2 \geq d_{i}^2 + d_{i-1}^2.
+\]
+With the inductive hypothesis we can lower bound the RHS as
+\eQnb
+d_{i}^2 + d_{i-1}^2 \geq F_i d_{1}^2 + F_{i-1}d_1^2.
+\eQne
+Factoring and substituting the Fibonacci recurrence to RHS of $(2)$ we obtain
+\[
+d_{i}^2 + d_{i-1}^2 \geq F_{i+1}d_{1}^2.
+\]
+Hence, we finally get that
+\[
+d_{i+1}^2 \geq F_{i+1}d_{i}^2
+\]
+which completes the induction. Hence the claim $d_i^2 \leq d_1^2$ holds true for all $i$ such that
+$1 \leq i \leq 12$.
+Notice that for $i=12$ case we have $F_12 = 144$ yielding 
+\[
+d_{i+1}^2 \geq 144d_1^2.
+\]
+As the numbers are chosen from the open interval $(1,12)$ we have that $d_{i+1}^2$ is strictly less
+than $144$, but $144d_1^2$ is strictly greater than $144$, which is a contradiction. Therefore,
+we have shown given any $d_1, d_2, ... , d_{12}$ chosen from $(1,11)$, there exists three distinct 
+indices $i, j, k$ such that $d_i, d_j, d_k$ form side lenghts of an acute traingle. $\qed$ 
+\end{solution}
+
+
+\begin{remark}
+\end{remark}
+\pb
+\begin{question}[2012 A-2]
+\end{question}
+\begin{solution}
+Assume that for every $x$ and $y$ in $S$ there exists $z$ in $S$ such that $x * z = y$.
+Assume that $a,b,c$ are in $S$ and $a * c = b * c$ holds. Let $d$ be the element such that
+$d = a * c = b * c $ holds. 
+From the assumption we can deduce that there exist $e$ and $f$ in $S$ such that 
+\eQb
+d * e &=& a \\
+d * f &=& b \\
+\eQe
+
+\end{solution}
+\begin{question}[2008 A-1]
+\end{question}
+\begin{solution}
+We claim that $g(x) = f(x,0)$ satisfies the given properties.
+Substituting $(x,y,z) = (0,0,0)$ into the functional equations yields
+\[
+f(0,0) + f(0,0) + f(0,0) = 3f(0,0) = 0
+\]
+which gives that $f(0,0) = 0$. Substituting $(x,y,z) = (0,0,0)$ we obtain
+\[
+f(x,0) + f(0,0) + f(0,x) = 0;
+\]
+hence, $f(x,0) = -f(0,x)$. Substituing $(x,y,z) = (x,y,0)$ gives
+\[
+f(x,y) + f(y,0) + f(0,x) = 0.
+\]
+Rearranging and substituting $f(x,0) = -f(0,x)$ results in
+\[
+f(x,y) = f(x,0) - f(y,0) \\
+\]
+Let $g(x) = f(x,0)$ which is a well-defined function $g: \mathbb{R} \to \mathbb{R}$,
+we see that
+\[
+f(x,y) = g(x) - g(y)
+\]
+as desired. Hence, we have shown that there exists a function $g: \mathbb{R} \to \mathbb{R}$,
+$g(x) = f(x,0)$ in particular, that $f(x,y) = g(x) - g(y)$ is satisfied.
+\end{solution}
+
+\bigskip
+
+\begin{question}[2010 A-1]
+\end{question}
+\begin{solution} 
+We claim that $k = \lceil \dfrac{n}{2} \rceil$. 
+For $n$ odd, the lower bound can be acheived by the partition
+\[
+\{n \}, \{1, n-1 \} , \{2 , n-2\}, ...
+\]
+Since $n-1$ is even, the partition is well defined. Now for the case where
+\[
+\{n, 1\}, \{n-1, 2 \} , \{n -2 , 3\}, ...
+\]
+Now we show that such partition strategy is indeed optimal for all $n$.
+Let us denote the sum of each box of the optmal strategy as $S$. Since the number $n$ itself
+belongs to one of the boxes we obtain a lower bound, $S \geq n$. As the partition strategy
+for $n$ odd case yields $S = n$ and $n$ is indeed a lower bound on $S$, we have shown that
+the strategy is optiaml for $n$ odd case. 
+For $n$ even we show that $S$ has to be lower bounded by $n+1$. Suppose that $S = n$.
+A paritition that can acheived $S$ must have the following configuration
+
+\end{solution}
+
+\begin{question}[2010 B-1]
+\end{question}
+\begin{solution}
+Suppose that such sequence exists.
+Suppose that $0 \leq a_i^2 \leq 1$ for $i$. Then we get that
+\[
+\sum_{i=1}^{\infty} a_i^4 \leq \sum_{i=1}^{\infty} a_i^2. 
+\]
+Since $\sum_{i=1}^{\infty} a_i^k = k$, by substitution we get $4 \leq 2$,
+which is a contradiction. Hence, there exists an index $k$ such that $a_k^2 > 1$.
+Now, for large enough $m$, we have $a_k^{2m} > 2m$, which is a contradicts the condition
+of the sequence.
+Therefore, there does not exist an infinite sequence of real numbers
+such that 
+\[
+a_1^{m} + a_2^{m} ... = m
+\]
+for every positive integer $m$.
+\end{solution}
+
+\end{document}
+
