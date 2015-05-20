@@ -206,5 +206,42 @@ a_1^{m} + a_2^{m} ... = m
 for every positive integer $m$.
 \end{solution}
 
+\begin{question}[2001 A-1]
+\end{question}
+\begin{solution}
+Consider a set $S$ and a binary operation $*$ and $S$ is closed under $*$.
+Assume that $(a*b)*a = b$ for all $a, b \in S$. Substituting $(b*a)$ into the assumption,
+we obtain
+\[
+((b*a)*b)*(b*a) = b.
+\]
+From $(b*a)*b = a$, we can re-write the above equality as
+\[
+a*(b*a) = b,
+\]
+as desired.
+\end{solution}
+
+\begin{question}[2001 A-2]
+\end{question}
+\begin{solution}
+Let us denote the probability of having odd number of heads after $i$ tosses as $P_i$. Then, 
+for $i \geq 2$ we can express $P_{i}$ as 
+\eQb
+P_{i} &=& (1 - C_{i})P_{i-1} + C_{i}(1 - P_{i-1}),
+\eQe
+where $C_{i}$ is a probability of flipping a head for the $i$th coin. Simplifying
+the above equality yields
+\eQb
+P_{i} &=& (1-2C_{i})P_{i-1} + C_i.
+\eQe
+Substituting
+$C_{i} = \dfrac{1}{2i+1}$ into the last equality, we obtain
+\eQb
+P_i &=& P_{i-1} + \dfrac{1}{2i+1} - 2
+\eQe
+
+\end{solution}
+
 \end{document}
 
